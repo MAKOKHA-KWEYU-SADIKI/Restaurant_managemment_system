@@ -161,23 +161,7 @@ export const tableStatus_catalog=pgTable("status_catalog",{
     name:varchar("name",{length:255}),
     order_status:text("order_status").notNull(),
 });
-
-//our relations
-// export const stateRelation=relations(tableState,({one,many})=>({
-//     relState:one(tableCity,{
-//         fields:[tableState.id],
-//         references:[tableCity.state_id]
-//     })
-// }))
-// export const cityRelation=relations(tableCity,({one})=>({
-//   relCity:one(tableCity,{
-//        fields:[tableCity.id,{
-//         references:[tableState.state_id]
-//        }]
-//    })
-//  }))
-// 
-export const stateRelations = relations(tableState,({many})=>({
+export const stateRelations = relations(tableState,({one,many})=>({
     city:many(tableCity),
 }));
 
@@ -188,7 +172,7 @@ export const cityRelations = relations(tableCity, ({ one }) => ({
         references: [tableState.id]
     })
 }));
-export const userRelations = relations(tableUsers,({many})=>({
+export const userRelations = relations(tableUsers,({one,many})=>({
     city:many(tableRestaurant_owner),
 }));
 export const restaurant_ownerRelations = relations(tableRestaurant_owner, ({ one }) => ({
@@ -197,7 +181,7 @@ export const restaurant_ownerRelations = relations(tableRestaurant_owner, ({ one
         references: [tableUsers.id]
     })
 }));
-export const categoryRelations = relations(tableCategory,({many})=>({
+export const categoryRelations = relations(tableCategory,({one,many})=>({
     city:many(tableMenu_item),
 }));
 
@@ -208,7 +192,7 @@ export const restaurant_owner2Relations = relations(tableMenu_item, ({ one }) =>
         references: [tableCategory.id]
     })
 }));
-export const statusRelations = relations(tableStatus_catalog,({many})=>({
+export const statusRelations = relations(tableStatus_catalog,({one,many})=>({
     city:many(tableOrder_status),
 }));
 
@@ -219,7 +203,7 @@ export const order_statusRelations = relations(tableOrder_status, ({ one }) => (
         references: [tableStatus_catalog.id]
     })
 }));
-export const users_oderRelations = relations(tableUsers,({many})=>({
+export const users_oderRelations = relations(tableUsers,({one,many})=>({
     city:many(tableOrders),
 }));
 
@@ -230,7 +214,7 @@ export const order_usersRelations = relations(tableOrders, ({ one }) => ({
         references: [tableUsers.id]
     })
 }));
-export const retaurant_Raustaurand_ownerRelations = relations(tableRestaurant,({many})=>({
+export const retaurant_Raustaurand_ownerRelations = relations(tableRestaurant,({one,many})=>({
     city:many(tableRestaurant_owner),
 }));
 
@@ -241,7 +225,7 @@ export const restaurant_owner_restaurantRelations = relations(tableRestaurant_ow
         references: [tableRestaurant.id]
     })
 }));
-export const order_orderStatusRelations = relations(tableOrders,({many})=>({
+export const order_orderStatusRelations = relations(tableOrders,({one,many})=>({
     city:many(tableOrder_status),
 }));
 
@@ -252,7 +236,7 @@ export const orderStatus_ordersRelations = relations(tableOrder_status, ({ one }
         references: [tableOrders.id]
     })
 }));
-export const driverRelations = relations(tableDriver,({many})=>({
+export const driverRelations = relations(tableDriver,({one,many})=>({
     city:many(tableOrders),
 }));
 
@@ -263,7 +247,7 @@ export const adressDriverRelations = relations(tableOrders, ({ one }) => ({
         references: [tableDriver.id]
     })
 }));
-export const order_commentRelations = relations(tableOrders,({many})=>({
+export const order_commentRelations = relations(tableOrders,({one,many})=>({
     city:many(tableComment),
 }));
 
@@ -274,3 +258,7 @@ export const comment_orderRelations = relations(tableComment, ({ one }) => ({
         references: [tableOrders.id]
     })
 }));
+export type TIstate = typeof tableState.$inferInsert;
+export type TSstate = typeof tableState.$inferSelect;
+export type TIstate = typeof tableCity.$inferInsert;
+export type TSstate = typeof tableCity.$inferSelect;

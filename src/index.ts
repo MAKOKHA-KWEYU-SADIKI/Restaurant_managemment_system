@@ -1,5 +1,6 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
+import { stateRouter } from './state/state.router'
 
 const app=new Hono()
 app.get('/',(c)=>{
@@ -14,6 +15,8 @@ serve({
     fetch:app.fetch,
     port
 })
+app.get('')
+app.route("/state", stateRouter)   // /users
 
 
 
