@@ -2,4 +2,18 @@ GET http://localhost:3000/
 ###
 GET http://localhost:3000/w
 ###
-GET http://localhost:3000/state
+GET http://localhost:3000/
+###
+GET http://localhost:3000/api/state
+###
+POST http://localhost:3000/api/p
+###
+POST http://localhost:3000/api/p
+Content-Type: application/json
+
+{
+"id":3,
+"name":"mombasa",
+"code":"65767"
+
+}
