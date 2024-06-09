@@ -271,3 +271,7 @@ export const comment_orderRelations = relations(tableComment, ({ one }) => ({
 // export type TSstate = typeof tableState.$inferSelect;
 // export type TIstate = typeof tableCity.$inferInsert;
 // export type TSstate = typeof tableCity.$inferSelect;
+export type TIstate=typeof tableState.$inferInsert;
+export type TSstate=typeof tableState.$inferSelect;
+export type TIcity=typeof tableCity.$inferInsert;
+export type TScity=typeof tableCity.$inferSelect;

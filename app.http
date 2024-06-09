@@ -2,18 +2,46 @@ GET http://localhost:3000/
 ###
 GET http://localhost:3000/w
 ###
-GET http://localhost:3000/
+GET http://localhost:3000/api/
 ###
-GET http://localhost:3000/api/state
+GET http://localhost:3000/api/stateList
 ###
-POST http://localhost:3000/api/p
+GET http://localhost:3000/api/stateFindONE/7
 ###
-POST http://localhost:3000/api/p
+POST http://localhost:3000/api/stateInsert
 Content-Type: application/json
 
 {
-"id":3,
-"name":"mombasa",
-"code":"65767"
+"id":7,
+"name":"harambe",
+"code":"005",
+"city":"kakamega county-matungu sub-county"
+
+}
+###
+PUT http://localhost:3000/api/stateUpdate/7
+Content-Type: application/json
+
+{
+"name":"zanziba",
+"code":"tz001",
+"city":"zanziba"
+}
+###
+DELETE http://localhost:3000/api/stateDelete/8
+###
+GET http://localhost:3000/api/cityList
+###
+GET http://localhost:3000/api/cityFindONE/14
+###
+POST http://localhost:3000/api/stateInsert
+Content-Type: application/json
+
+{
+"id":"7",
+"name":"Mombasa",
+"state_id":"3",
+"state":"mwembetayari",
+"restorand":"Alhamdullillah"
 
 }

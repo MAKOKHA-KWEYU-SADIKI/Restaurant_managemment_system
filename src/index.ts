@@ -32,6 +32,7 @@ app.get('/timeout', async (c) => {
   app.get('/metrics', printMetrics)
    
 import { stateRouter } from './state/state.router'
+import { cityRouter } from './state/city.router'
 
 app.get('/',(c)=>{
     return c.text("hello world")
@@ -48,7 +49,8 @@ serve({
     fetch:app.fetch,
     port
 })
-app.route('/api',stateRouter)
+app.route('/',stateRouter)
+app.route('/',cityRouter)
 // serve({
 //     fetch:app.fetch,
 //     port:Number(process.env.PORT) 
