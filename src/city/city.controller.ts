@@ -8,7 +8,7 @@ export const listcity = async (c: Context) => {
 
         const data = await cityService(limit);
         if (data == null || data.length == 0) {
-            return c.text("state not found", 404)
+            return c.text("city not found", 404)
         }
         return c.json(data, 200);
     } catch (error: any) {

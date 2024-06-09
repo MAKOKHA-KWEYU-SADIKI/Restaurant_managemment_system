@@ -18,15 +18,15 @@ export const getcityService = async (id: number): Promise<TIcity | undefined> =>
 
 export const createcityService = async (city: TIcity) => {
     await db.insert(tableCity).values(city)
-    return "state created successfully";
+    return "city created successfully";
 }
 
 export const updatecityService = async (id: number, city: TIcity) => {
     await db.update(tableCity).set(city).where(eq(tableCity.id, id))
-    return "state updated successfully";
+    return "city updated successfully";
 }
 
 export const deletecityService = async (id: number) => {
     await db.delete(tableCity).where(eq(tableCity.id, id))
-    return "state deleted successfully";
+    return "city deleted successfully";
 }

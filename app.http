@@ -16,7 +16,6 @@ Content-Type: application/json
 "name":"harambe",
 "code":"005",
 "city":"kakamega county-matungu sub-county"
-
 }
 ###
 PUT http://localhost:3000/api/stateUpdate/7
@@ -34,14 +33,27 @@ GET http://localhost:3000/api/cityList
 ###
 GET http://localhost:3000/api/cityFindONE/14
 ###
-POST http://localhost:3000/api/stateInsert
+POST http://localhost:3000/api/cityInsert
 Content-Type: application/json
 
 {
 
-"name":"Mombasa",
-"state_id":3,
-"state":"mwembetayari",
-"restaurant":"Alhamdullillah"
-
+"name":"Mali",
+"state_id":9,
+"address":"mali123",
+"state":"Nyali",
+"restorand":"Alhamdullillah"
 }
+###
+GET http://localhost:3000/api/cityFindONE/1
+###
+PUT http://localhost:3000/api/cityUpdate/22
+Content-Type: application/json
+
+{
+"name":"madina",
+"address":"madina2323",
+"state":"answar"
+}
+###
+DELETE http://localhost:3000/api/cityDelete/22

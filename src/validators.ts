@@ -8,7 +8,8 @@ export const stateSchema = z.object({
 export const citySchema = z.object({
     name: z.string(),
     state_id: z.number(),
+    address:z.string(),
     state: z.string(),
-    restaurant:z.string()
+    restorand:z.string()
    
 })
