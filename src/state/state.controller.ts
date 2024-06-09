@@ -20,16 +20,16 @@ export const getstate = async (c: Context) => {
     const id = parseInt(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
-    const user = await getstateService(id);
-    if (user == undefined) {
+    const state = await getstateService(id);
+    if (state == undefined) {
         return c.text("state not found", 404);
     }
-    return c.json(user, 200);
+    return c.json(state, 200);
 }
 export const createstate = async (c: Context) => {
     try {
-        const user = await c.req.json();
-        const createdstate = await createstateService(user);
+        const state = await c.req.json();
+        const createdstate = await createstateService(state);
 
 
         if (!createdstate) return c.text("state not created", 404);
@@ -44,13 +44,13 @@ export const updatestate = async (c: Context) => {
     const id = parseInt(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
-    const user = await c.req.json();
+    const state = await c.req.json();
     try {
         // search for the state
         const searchedstate = await getstateService(id);
         if (searchedstate == undefined) return c.text("state not found", 404);
         // get the data and update it
-        const res = await updatestateService(id, user);
+        const res = await updatestateService(id, state);
         // return a success message
         if (!res) return c.text("state not updated", 404);
 
@@ -67,7 +67,7 @@ export const deletestate = async (c: Context) => {
     try {
         //search for the state
         const state = await getstateService(id);
-        if (state == undefined) return c.text("User not found", 404);
+        if (state == undefined) return c.text("state not found", 404);
         //deleting the state
         const res = await deletestateService(id);
         if (!res) return c.text("state not deleted", 404);

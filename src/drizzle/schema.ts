@@ -275,3 +275,7 @@ export type TIstate=typeof tableState.$inferInsert;
 export type TSstate=typeof tableState.$inferSelect;
 export type TIcity=typeof tableCity.$inferInsert;
 export type TScity=typeof tableCity.$inferSelect;
+export type TIcategory=typeof tableCategory.$inferInsert;
+export type TScategory=typeof tableCategory.$inferSelect;
+export type TSstatus_catalog=typeof tableStatus_catalog.$inferInsert;
+export type TIstatus_catalog=typeof tableStatus_catalog.$inferSelect;

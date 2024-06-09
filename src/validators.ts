@@ -13,3 +13,12 @@ export const citySchema = z.object({
     restorand:z.string()
    
 })
+export const categorySchema=z.object({
+    name:z. string(),
+    menu_item: z.string()
+})
+
+export const status_catalogSchema=z.object({
+    name: z.string(),
+    order_status: z.string()
+})
