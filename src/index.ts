@@ -32,7 +32,7 @@ app.get('/timeout', async (c) => {
   app.get('/metrics', printMetrics)
    
 import { stateRouter } from './state/state.router'
-import { cityRouter } from './state/city.router'
+import { cityRouter } from './city/city.router'
 
 app.get('/',(c)=>{
     return c.text("hello world")

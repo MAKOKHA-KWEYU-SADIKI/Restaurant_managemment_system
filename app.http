@@ -38,10 +38,10 @@ POST http://localhost:3000/api/stateInsert
 Content-Type: application/json
 
 {
-"id":"7",
+
 "name":"Mombasa",
-"state_id":"3",
+"state_id":3,
 "state":"mwembetayari",
-"restorand":"Alhamdullillah"
+"restaurant":"Alhamdullillah"
 
 }
