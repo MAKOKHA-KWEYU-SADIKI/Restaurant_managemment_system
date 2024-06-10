@@ -35,10 +35,12 @@ import { stateRouter } from './state/state.router'
 import { cityRouter } from './city/city.router'
 import{categoryRouter} from './category/category.router'
 import{status_catalogRouter} from './catalog/catalog.router'
+import { addressRouter } from './address/address.router'
 app.route('/',stateRouter)
 app.route('/',cityRouter)
 app.route('/',categoryRouter)
 app.route('/',status_catalogRouter)
+app.route('/',addressRouter)
 app.get('/',(c)=>{
     return c.text("hello world")
 })

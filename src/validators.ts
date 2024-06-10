@@ -22,3 +22,6 @@ export const status_catalogSchema=z.object({
     name: z.string(),
     order_status: z.string()
 })
+export const addressSchema=z.object({
+    
+})
