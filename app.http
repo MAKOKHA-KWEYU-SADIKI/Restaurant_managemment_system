@@ -215,3 +215,161 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3000/api/userDelete/1
 ###
+GET http://localhost:3000/api/commentList
+###
+http://localhost:3000/api/commentFindONE/1
+###
+PUT http://localhost:3000/api/commentUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+DELETE http://localhost:3000/api/driverDelete/1
+###
+GET http://localhost:3000/api/driverList
+###
+GET http://localhost:3000/api/driverFindONE/1
+###
+PUT http://localhost:3000/api/driverUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/driverInsert
+Content-Type: application/json
+
+{
+ 
+}
+###
+DELETE http://localhost:3000/api/menuDelete/1
+###
+GET http://localhost:3000/api/menuList
+###
+GET http://localhost:3000/api/menuFindONE/1
+###
+PUT http://localhost:3000/api/menuUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/menuInsert
+Content-Type: application/json
+
+{
+ 
+}
+###
+DELETE http://localhost:3000/api/ordermDelete/1
+###
+GET http://localhost:3000/api/ordermList
+###
+GET http://localhost:3000/api/ordermFindONE/1
+###
+PUT http://localhost:3000/api/ordermUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/ordermInsert
+Content-Type: application/json
+
+{
+ 
+}
+###
+DELETE http://localhost:3000/api/ordersDelete/1
+###
+GET http://localhost:3000/api/ordersList
+###
+GET http://localhost:3000/api/ordersFindONE/1
+###
+PUT http://localhost:3000/api/ordersUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/ordersInsert
+Content-Type: application/json
+
+{
+ 
+}
+###
+DELETE http://localhost:3000/api/orderDelete/1
+###
+GET http://localhost:3000/api/orderList
+###
+GET http://localhost:3000/api/orderFindONE/1
+###
+PUT http://localhost:3000/api/orderUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/orderInsert
+Content-Type: application/json
+
+{
+ 
+}
+###
+DELETE http://localhost:3000/api/restaurantDelete/1
+###
+GET http://localhost:3000/api/restaurantList
+###
+GET http://localhost:3000/api/restaurantFindONE/1
+###
+PUT http://localhost:3000/api/restaurantUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/restaurantInsert
+Content-Type: application/json
+
+{
+ 
+}
+###
+DELETE http://localhost:3000/api/restaurantoDelete/1
+###
+GET http://localhost:3000/api/restaurantoList
+###
+GET http://localhost:3000/api/restaurantoFindONE/1
+###
+PUT http://localhost:3000/api/restaurantoUpdate/2
+Content-Type: application/json
+
+{
+"orders":"223",
+"users":"32"
+}
+###
+POST http://localhost:3000/api/restaurantoInsert
+Content-Type: application/json
+
+{
+
+}

@@ -1,14 +1,12 @@
-import{cityService,getcityService,createcityService,updatecityService,deletecityService} from "./city.service";
+import{commentService,getcommentService,postcommentService,updatecommentService,deletecommentService} from "./comment.service";
 import { Context } from "hono";
-export const listcity = async (c: Context) => {
+export const listcomment = async (c: Context) => {
     try {
-        //limit the number of state to be returned
-
         const limit = Number(c.req.query('limit'))
 
-        const data = await cityService(limit);
+        const data = await commentService(limit);
         if (data == null || data.length == 0) {
-            return c.text("city not found", 404)
+            return c.text("comment not found", 404)
         }
         return c.json(data, 200);
     } catch (error: any) {
@@ -16,43 +14,43 @@ export const listcity = async (c: Context) => {
     }
 }
 
-export const getcity = async (c: Context) => {
+export const getcomment = async (c: Context) => {
     const id = parseInt(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
-    const user = await getcityService(id);
-    if (user == undefined) {
+    const comment = await getcommentService(id);
+    if (comment == undefined) {
         return c.text("state not found", 404);
     }
-    return c.json(user, 200);
+    return c.json(comment, 200);
 }
-export const createcity = async (c: Context) => {
+export const postcomment = async (c: Context) => {
     try {
-        const user = await c.req.json();
-        const createdstate = await createcityService(user);
+        const comment = await c.req.json();
+        const postedcomment = await postcommentService(comment);
 
 
-        if (!createdstate) return c.text("city not created", 404);
-        return c.json({ msg: createdstate }, 201);
+        if (!postedcomment) return c.text("comment not created", 404);
+        return c.json({ msg: postedcomment }, 201);
 
     } catch (error: any) {
         return c.json({ error: error?.message }, 400)
     }
 }
 
-export const updatecity = async (c: Context) => {
+export const updatecomment = async (c: Context) => {
     const id = parseInt(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
-    const user = await c.req.json();
+    const comment = await c.req.json();
     try {
-        // search for the city
-        const searchedstate = await getcityService(id);
-        if (searchedstate == undefined) return c.text("city not found", 404);
-        // get the data and update it
-        const res = await updatecityService(id, user);
-        // return a success message
-        if (!res) return c.text("city not updated", 404);
+
+        const searchedcomment = await getcommentService(id);
+        if (searchedcomment == undefined) return c.text("city not found", 404);
+
+        const res = await updatecommentService(id, comment);
+
+        if (!res) return c.text("comment not updated", 404);
 
         return c.json({ msg: res }, 201);
     } catch (error: any) {
@@ -60,17 +58,17 @@ export const updatecity = async (c: Context) => {
     }
 }
 
-export const deletecity = async (c: Context) => {
+export const deletecomment = async (c: Context) => {
     const id = Number(c.req.param("id"));
     if (isNaN(id)) return c.text("Invalid ID", 400);
 
     try {
-        //search for the city
-        const state = await getcityService(id);
-        if (state == undefined) return c.text("city not found", 404);
-        //deleting the city
-        const res = await deletecityService(id);
-        if (!res) return c.text("city not deleted", 404);
+
+        const state = await getcommentService(id);
+        if (state == undefined) return c.text("comment not found", 404);
+        
+        const res = await deletecommentService(id);
+        if (!res) return c.text("comment not deleted", 404);
 
         return c.json({ msg: res }, 201);
     } catch (error: any) {

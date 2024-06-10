@@ -1,22 +1,22 @@
-import{listcity,getcity,createcity,updatecity,deletecity} from "./city.controller";
+import{listcomment,getcomment,postcomment,updatecomment,deletecomment} from "./comment.controller";
 import{Hono} from "hono"
 import { Context } from "hono";
 import { zValidator } from "@hono/zod-validator";
-import { citySchema } from "../validators";
-//import { type Context } from "hono";
-export const cityRouter=new Hono();
+import { commentSchema } from "../validators";
 
-cityRouter.get("/cityList", listcity);
-//get a single state    api/sate/1
-cityRouter.get("/cityFindONE/:id", getcity)
-//create a state 
-cityRouter.post("/cityInsert", zValidator('json', citySchema, (result, c) => {
+export const commentRouter=new Hono();
+
+commentRouter.get("/commentList", listcomment);
+
+commentRouter.get("/commentFindONE/:id", getcomment)
+ 
+commentRouter.post("/commentInsert", zValidator('json', commentSchema, (result, c) => {
     if (!result.success) {
         return c.json(result.error, 400)
     }
-}), createcity)
+}), postcomment)
 
-//update a state
-cityRouter.put("/cityUpdate/:id", updatecity)
-//delete state
-cityRouter.delete("/cityDelete/:id", deletecity)
+
+commentRouter.put("/commentUpdate/:id", updatecomment)
+
+commentRouter.delete("/commentDelete/:id", deletecomment)

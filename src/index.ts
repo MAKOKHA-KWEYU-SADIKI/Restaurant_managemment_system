@@ -37,12 +37,27 @@ import{categoryRouter} from './category/category.router'
 import{status_catalogRouter} from './catalog/catalog.router'
 import { addressRouter } from './address/address.router'
 import { userRouter } from './user/user.router'
+import { commentRouter } from './comment/comment.router'
+import { driverRouter } from './driver/driver.router'
+import { menuRouter } from './menu_item/menu.router'
+import { ordermRouter } from './order_menu item/orderm.router'
+import { ordersRouter } from './order_status/orders.router'
+import { orderRouter } from './orders/order.router'
+import { restaurantRouter } from './restaurant/restaurant.router'
 app.route('/',stateRouter)
 app.route('/',cityRouter)
 app.route('/',categoryRouter)
 app.route('/',status_catalogRouter)
 app.route('/',addressRouter)
 app.route('/',userRouter)
+app.route('/',commentRouter)
+app.route('/',driverRouter)
+app.route('/',menuRouter)
+app.route('/',ordermRouter)
+app.route('/',ordersRouter)
+app.route('/',orderRouter)
+app.route('/',restaurantRouter)
+
 app.get('/',(c)=>{
     return c.text("hello world")
 })

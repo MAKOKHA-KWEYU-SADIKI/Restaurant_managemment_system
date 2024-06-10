@@ -2,8 +2,6 @@ import{addressService,getaddressService,createaddressService,updateaddressServic
 import { Context } from "hono";
 export const listaddress = async (c: Context) => {
     try {
-        //limit the number of state to be returned
-
         const limit = Number(c.req.query('limit'))
 
         const data = await addressService(limit);

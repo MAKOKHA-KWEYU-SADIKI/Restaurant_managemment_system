@@ -1,32 +1,32 @@
 import {db} from "../drizzle/db"
 import {eq} from "drizzle-orm"
-import{TIcity,TScity,tableCity,}from "../drizzle/schema"
-export const cityService = async (limit?: number): Promise<TScity[] | null> => {
+import{TIcomment,TScomment,tableComment,}from "../drizzle/schema"
+export const commentService = async (limit?: number): Promise<TScomment[] | null> => {
     if (limit) {
-        return await db.query.tableCity.findMany({
+        return await db.query.tableComment.findMany({
             limit: limit
         });
     }
-    return await db.query.tableCity.findMany();
+    return await db.query.tableComment.findMany();
 }
 
-export const getcityService = async (id: number): Promise<TIcity | undefined> => {
-    return await db.query.tableCity.findFirst({
-        where: eq(tableCity.id, id)
+export const getcommentService = async (id: number): Promise<TIcomment | undefined> => {
+    return await db.query.tableComment.findFirst({
+        where: eq(tableComment.id, id)
     })
 }
 
-export const createcityService = async (city: TIcity) => {
-    await db.insert(tableCity).values(city)
-    return "city created successfully";
+export const postcommentService = async (city: TIcomment) => {
+    await db.insert(tableComment).values(city)
+    return "comment posted successfully";
 }
 
-export const updatecityService = async (id: number, city: TIcity) => {
-    await db.update(tableCity).set(city).where(eq(tableCity.id, id))
-    return "city updated successfully";
+export const updatecommentService = async (id: number, city: TIcomment) => {
+    await db.update(tableComment).set(city).where(eq(tableComment.id, id))
+    return "comment updated successfully";
 }
 
-export const deletecityService = async (id: number) => {
-    await db.delete(tableCity).where(eq(tableCity.id, id))
-    return "city deleted successfully";
+export const deletecommentService = async (id: number) => {
+    await db.delete(tableComment).where(eq(tableComment.id, id))
+    return "comment deleted successfully";
 }

@@ -71,8 +71,8 @@ export const tableUsers=pgTable("users",{
 export const tableOrders=pgTable("orders",{
     id:serial("id").primaryKey(),
     restaurant_id:integer("restaurand_id").notNull().references(()=>tableRestaurant.id,{onDelete:"cascade"}),
-    estimate_delivery_time:date("estimate_delivery_time").notNull(),
-    actuall_delivery_time:date("actual_deliver_time").references(()=>tableAddress.id,{onDelete:"cascade"}),
+    estimate_delivery_time:timestamp("estimate_delivery_time").notNull(),
+    actuall_delivery_time:timestamp("actual_deliver_time").references(()=>tableAddress.id,{onDelete:"cascade"}),
     delivery_address_id:integer("delivery_address_id").notNull(),
     user_id:integer("user_id").notNull().references(()=>tableUsers.id,{onDelete:"cascade"}),
     driver_id:integer("driver_id").references(()=>tableDriver.id,{onDelete:"cascade"}),
@@ -287,3 +287,15 @@ export type TSdriver=typeof tableDriver.$inferInsert;
 export type TIdriver=typeof tableDriver.$inferSelect;
 export type TSuser=typeof tableUsers.$inferInsert;
 export type TIuser=typeof tableUsers.$inferSelect;
+export type TSmenu=typeof tableMenu_item.$inferInsert;
+export type TImenu=typeof tableMenu_item.$inferSelect;
+export type TSorderm=typeof tableOder_menu_item.$inferInsert;
+export type TIorderm=typeof tableOder_menu_item.$inferSelect;
+export type TSorders=typeof tableOrder_status.$inferInsert;
+export type TIorders=typeof tableOrder_status.$inferSelect;
+export type TSorder=typeof tableOrders.$inferInsert;
+export type TIorder=typeof tableOrders.$inferSelect;
+export type TSrestaurant=typeof tableRestaurant.$inferInsert;
+export type TIrestaurant=typeof tableRestaurant.$inferSelect;
+export type TSrestauranto=typeof tableRestaurant_owner.$inferInsert;
+export type TIrestauranto=typeof tableRestaurant_owner.$inferSelect;
