@@ -9,7 +9,7 @@ restaurantoRouter.get("/restaurantoList", listrestauranto);
 
 restaurantoRouter.get("/restaurantoFindONE/:id", getrestauranto)
 
-restaurantoRouter.post("/restaurantInsert", zValidator('json', restaurantoSchema, (result, c) => {
+restaurantoRouter.post("/restaurantoInsert", zValidator('json', restaurantoSchema, (result, c) => {
     if (!result.success) {
         return c.json(result.error, 400)
     }

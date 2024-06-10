@@ -44,6 +44,7 @@ import { ordermRouter } from './order_menu item/orderm.router'
 import { ordersRouter } from './order_status/orders.router'
 import { orderRouter } from './orders/order.router'
 import { restaurantRouter } from './restaurant/restaurant.router'
+import { restaurantoRouter } from './restaurant_owner/reustauranto.router'
 app.route('/',stateRouter)
 app.route('/',cityRouter)
 app.route('/',categoryRouter)
@@ -57,6 +58,7 @@ app.route('/',ordermRouter)
 app.route('/',ordersRouter)
 app.route('/',orderRouter)
 app.route('/',restaurantRouter)
+app.route('/',restaurantoRouter)
 
 app.get('/',(c)=>{
     return c.text("hello world")
