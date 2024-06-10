@@ -22,7 +22,7 @@ export const getcity = async (c: Context) => {
 
     const user = await getcityService(id);
     if (user == undefined) {
-        return c.text("state not found", 404);
+        return c.text("city not found", 404);
     }
     return c.json(user, 200);
 }

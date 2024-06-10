@@ -8,7 +8,7 @@ export const listaddress = async (c: Context) => {
 
         const data = await addressService(limit);
         if (data == null || data.length == 0) {
-            return c.text("city not found", 404)
+            return c.text("address not found", 404)
         }
         return c.json(data, 200);
     } catch (error: any) {
@@ -22,7 +22,7 @@ export const getaddress = async (c: Context) => {
 
     const user = await getaddressService(id);
     if (user == undefined) {
-        return c.text("state not found", 404);
+        return c.text("address not found", 404);
     }
     return c.json(user, 200);
 }
@@ -48,7 +48,7 @@ export const updateaddress = async (c: Context) => {
     try {
         // search for the city
         const searchedstate = await getaddressService(id);
-        if (searchedstate == undefined) return c.text("city not found", 404);
+        if (searchedstate == undefined) return c.text("address not found", 404);
         // get the data and update it
         const res = await updateaddressService(id, user);
         // return a success message
@@ -70,7 +70,7 @@ export const deleteaddress = async (c: Context) => {
         if (state == undefined) return c.text("address not found", 404);
         //deleting the address
         const res = await deleteaddressService(id);
-        if (!res) return c.text("city not deleted", 404);
+        if (!res) return c.text("address not deleted", 404);
 
         return c.json({ msg: res }, 201);
     } catch (error: any) {

@@ -1,4 +1,4 @@
-import db from "../drizzle/db"
+import {db} from "../drizzle/db"
 import {eq} from "drizzle-orm"
 import{TIcategory,TScategory,tableCategory,}from "../drizzle/schema"
 export const categoryService = async (limit?: number): Promise<TScategory[] | null> => {

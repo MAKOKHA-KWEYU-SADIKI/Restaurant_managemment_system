@@ -1,4 +1,4 @@
-import db from "../drizzle/db"
+import {db} from "../drizzle/db"
 import {eq} from "drizzle-orm"
 import{TIstate,TSstate,tableState,}from "../drizzle/schema"
 // export const stateservice=async():Promise<TSstate[] |null>=>{

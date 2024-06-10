@@ -285,3 +285,5 @@ export type TScomment=typeof tableComment.$inferInsert;
 export type TIcomment=typeof tableComment.$inferSelect;
 export type TSdriver=typeof tableDriver.$inferInsert;
 export type TIdriver=typeof tableDriver.$inferSelect;
+export type TSuser=typeof tableUsers.$inferInsert;
+export type TIuser=typeof tableUsers.$inferSelect;

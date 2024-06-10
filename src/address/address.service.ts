@@ -18,12 +18,12 @@ export const getaddressService = async (id: number): Promise<TIaddress | undefin
 
 export const createaddressService = async (address: TIaddress) => {
     await db.insert(tableAddress).values(address)
-    return "city created successfully";
+    return "address created successfully";
 }
 
 export const updateaddressService = async (id: number, address: TIaddress) => {
     await db.update(tableAddress).set(address).where(eq(tableAddress.id, id))
-    return "city updated successfully";
+    return "address updated successfully";
 }
 
 export const deleteaddressService = async (id: number) => {

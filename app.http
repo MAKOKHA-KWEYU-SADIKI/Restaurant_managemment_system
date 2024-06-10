@@ -6,13 +6,13 @@ GET http://localhost:3000/api/
 ###
 GET http://localhost:3000/api/stateList
 ###
-GET http://localhost:3000/api/stateFindONE/7
+GET http://localhost:3000/api/stateFindONE/1
 ###
 POST http://localhost:3000/api/stateInsert
 Content-Type: application/json
 
 {
-"id":7,
+"id":5,
 "name":"harambe",
 "code":"005",
 "city":"kakamega county-matungu sub-county"
@@ -31,7 +31,7 @@ DELETE http://localhost:3000/api/stateDelete/8
 ###
 GET http://localhost:3000/api/cityList
 ###
-GET http://localhost:3000/api/cityFindONE/14
+GET http://localhost:3000/api/cityFindONE/1
 ###
 POST http://localhost:3000/api/cityInsert
 Content-Type: application/json
@@ -39,7 +39,7 @@ Content-Type: application/json
 {
 
 "name":"Mali",
-"state_id":9,
+"state_id":1,
 "address":"mali123",
 "state":"Nyali",
 "restorand":"Alhamdullillah"
@@ -66,18 +66,18 @@ POST http://localhost:3000/api/categoryInsert
 Content-Type: application/json
 
 {
-"name":"null",
-"menu_item":"none"
+"name":"nuts",
+"menu_item":"groundnuts"
 }
 ###
 GET http://localhost:3000/api/categoryFindONE/1
 ###
-PUT http://localhost:3000/api/categoryUpdate/5
+PUT http://localhost:3000/api/categoryUpdate/1
 Content-Type: application/json
 
 {
 "name":"food",
-"menu_item":"ugali"
+"menu_item":"pilau"
 }
 ###
 DELETE http://localhost:3000/api/categoryDelete/5
@@ -107,11 +107,11 @@ Content-Type: application/json
 ###
 DELETE http://localhost:3000/api/stateDelete/8
 ###
-GET http://localhost:3000/api/cityList
+GET http://localhost:3000/api/addressList
 ###
-GET http://localhost:3000/api/cityFindONE/14
+GET http://localhost:3000/api/addressFindONE/14
 ###
-POST http://localhost:3000/api/cityInsert
+POST http://localhost:3000/api/addressInsert
 Content-Type: application/json
 
 {
@@ -123,9 +123,9 @@ Content-Type: application/json
 "restorand":"Alhamdullillah"
 }
 ###
-GET http://localhost:3000/api/cityFindONE/1
+GET http://localhost:3000/api/addressFindONE/1
 ###
-PUT http://localhost:3000/api/cityUpdate/22
+PUT http://localhost:3000/api/addresssUpdate/22
 Content-Type: application/json
 
 {
@@ -144,17 +144,74 @@ POST http://localhost:3000/api/status_catalogInsert
 Content-Type: application/json
 
 {
-"name":"rice",
-"order_status":"ordered"
-}
-###
-PUT http://localhost:3000/api/status_catalogUpdate/3
-Content-Type: application/json
-
-{
 "name":"pilau",
 "order_status":"pending"
 }
 ###
+PUT http://localhost:3000/api/status_catalogUpdate/2
+Content-Type: application/json
+
+{
+"name":"pilau",
+"order_status":"delivered"
+}
+###
 DELETE http://localhost:3000/api/status_catalogDelete/1
+###
+GET http://localhost:3000/api/addressList
+###
+GET http://localhost:3000/api/addressFindONE/3
+###
+DELETE http://localhost:3000/api/addressDelete/1
+###
+POST http://localhost:3000/api/addressInsert
+Content-Type: application/json
+
+{
+    "street_address_1":"23332",
+    "street_address_2":"744579",
+    "zip_code":"hdgg43",
+    "delivery_instructions":"ontime",
+    "user_id":1,
+    "city_id":1,
+    "created_at":"2023-03-03",
+    "updated_at":"2024-02-02",
+    "city":"Nairobi",
+    "users":"34",
+    "orders":"3"
+}
+###
+GET http://localhost:3000/api/userList
+###
+POST http://localhost:3000/api/userInsert
+Content-Type: application/json
+
+{
+  "name":"Abdirahman",
+    "contact_phone":"076489230",
+    "phone_verified":true,
+    "email":"sadque@gmail.com",
+    "email_verified":"123wu",
+    "confirmation_code":"weyu34",
+    "password":"kmshjgfdfjh3784",
+    "created_at":"2024-03-02T00:00:00Z",
+    "updated_at":"2024-03-02T00:00:00Z",
+    "address":"sadque234",
+    "comment":"fine",
+    "driver":"kms",
+    "orders":"23",
+    "restaurant_owner":"sadque"
+}
+###
+http://localhost:3000/api/userFindONE/1
+###
+PUT http://localhost:3000/api/userUpdate/2
+Content-Type: application/json
+
+{
+"email":"sadque@jhs",
+"orders":"21"
+}
+###
+DELETE http://localhost:3000/api/userDelete/1
 ###

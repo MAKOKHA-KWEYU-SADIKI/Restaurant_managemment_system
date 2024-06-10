@@ -23,7 +23,7 @@ export const getstatus_catalog = async (c: Context) => {
 
     const user = await getstatus_catalogService(id);
     if (user == undefined) {
-        return c.text("state not found", 404);
+        return c.text("catalog not found", 404);
     }
     return c.json(user, 200);
 }
