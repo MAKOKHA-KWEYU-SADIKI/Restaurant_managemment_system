@@ -1,6 +1,6 @@
 import { timeStamp } from "console";
 import { Many, not ,relations} from "drizzle-orm";
-import { timestamp } from "drizzle-orm/pg-core";
+import { pgEnum, timestamp } from "drizzle-orm/pg-core";
 import { boolean, decimal } from "drizzle-orm/pg-core";
 import { integer } from "drizzle-orm/pg-core";
 import { pgTable,serial,text,date,varchar,} from "drizzle-orm/pg-core";
@@ -161,6 +161,20 @@ export const tableStatus_catalog=pgTable("status_catalog",{
     name:varchar("name",{length:255}),
     order_status:text("order_status").notNull(),
 });
+export const roleenum=pgEnum("role",['adm','state'])
+export const tableOuthstate=pgTable("outhstate",{
+    id:serial("id").primaryKey(),
+    state_id:integer("state_id").references(()=>tableUsers.id,{onDelete:"cascade"}),
+    password:varchar("password",{length:100}),
+    username:varchar("staename",{length:100}),
+    role:roleenum("role").default("state")
+});
+export const aouthuserRelation=relations(tableOuthstate,({one})=>({
+    states:one(tableState,{
+        fields:[tableOuthstate.state_id],
+        references:[tableState.id]
+    })
+}));
 export const stateRelations = relations(tableState,({one,many})=>({
     city:many(tableCity),
 }));
@@ -299,3 +313,5 @@ export type TSrestaurant=typeof tableRestaurant.$inferInsert;
 export type TIrestaurant=typeof tableRestaurant.$inferSelect;
 export type TSrestauranto=typeof tableRestaurant_owner.$inferInsert;
 export type TIrestauranto=typeof tableRestaurant_owner.$inferSelect;
+export type TIouth =typeof tableOuthstate.$inferInsert;
+export type TSouth=typeof tableOuthstate.$inferSelect;

@@ -146,3 +146,13 @@ export const restaurantoSchema=z.object({
     users_id:z.string(),
     restaurant:z.string()
 })
+export const loginstateSchema=z.object({
+    username:z.string(),
+    password:z.string()
+})
+export const registerstateSchema=z.object({
+    user_id:z.number(),
+    username:z.string(),
+    password:z.string(),
+    role:z.string()
+})

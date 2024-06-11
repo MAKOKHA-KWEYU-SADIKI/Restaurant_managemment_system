@@ -223,8 +223,8 @@ PUT http://localhost:3000/api/commentUpdate/2
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"is_praise":true,
+"users":"90"
 }
 ###
 DELETE http://localhost:3000/api/driverDelete/1
@@ -237,8 +237,8 @@ PUT http://localhost:3000/api/driverUpdate/2
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"car_year":"2024",
+"users":"95"
 }
 ###
 POST http://localhost:3000/api/driverInsert
@@ -254,12 +254,12 @@ GET http://localhost:3000/api/menuList
 ###
 GET http://localhost:3000/api/menuFindONE/1
 ###
-PUT http://localhost:3000/api/menuUpdate/2
+PUT http://localhost:3000/api/menuUpdate/1
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"price":"3232",
+"name":"Biriani"
 }
 ###
 POST http://localhost:3000/api/menuInsert
@@ -275,12 +275,12 @@ GET http://localhost:3000/api/ordermList
 ###
 GET http://localhost:3000/api/ordermFindONE/1
 ###
-PUT http://localhost:3000/api/ordermUpdate/2
+PUT http://localhost:3000/api/ordermUpdate/5
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"menu_item":"pilau",
+"orders":"3545"
 }
 ###
 POST http://localhost:3000/api/ordermInsert
@@ -290,18 +290,18 @@ Content-Type: application/json
  
 }
 ###
-DELETE http://localhost:3000/api/ordersDelete/1
+DELETE http://localhost:3000/api/ordersDelete/8
 ###
 GET http://localhost:3000/api/ordersList
 ###
-GET http://localhost:3000/api/ordersFindONE/1
+GET http://localhost:3000/api/ordersFindONE/8
 ###
-PUT http://localhost:3000/api/ordersUpdate/2
+PUT http://localhost:3000/api/ordersUpdate/8
 Content-Type: application/json
 
 {
 "orders":"223",
-"users":"32"
+"status_catalog": "ordered"
 }
 ###
 POST http://localhost:3000/api/ordersInsert
@@ -315,14 +315,15 @@ DELETE http://localhost:3000/api/orderDelete/1
 ###
 GET http://localhost:3000/api/orderList
 ###
-GET http://localhost:3000/api/orderFindONE/1
+GET http://localhost:3000/api/orderFindONE/2
 ###
 PUT http://localhost:3000/api/orderUpdate/2
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"price":"223000",
+"discout":"1000",
+"final_price":"222000"
 }
 ###
 POST http://localhost:3000/api/orderInsert
@@ -336,14 +337,15 @@ DELETE http://localhost:3000/api/restaurantDelete/1
 ###
 GET http://localhost:3000/api/restaurantList
 ###
-GET http://localhost:3000/api/restaurantFindONE/1
+GET http://localhost:3000/api/restaurantFindONE/2
 ###
-PUT http://localhost:3000/api/restaurantUpdate/2
+PUT http://localhost:3000/api/restaurantUpdate/1
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"name":"ma shaa Allah",
+"street_address":"riyadh125",
+"city":"Makkah"
 }
 ###
 POST http://localhost:3000/api/restaurantInsert
@@ -363,13 +365,16 @@ PUT http://localhost:3000/api/restaurantoUpdate/2
 Content-Type: application/json
 
 {
-"orders":"223",
-"users":"32"
+"restaurant_id":1,
+"user_id":1
 }
 ###
 POST http://localhost:3000/api/restaurantoInsert
 Content-Type: application/json
 
 {
-
+  "restaurant_id":2,
+  "owner_id":1,
+  "users_id":"34",
+  "restaurant":"Alhamdullillha"
 }
