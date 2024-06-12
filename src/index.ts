@@ -45,7 +45,7 @@ import { ordersRouter } from './order_status/orders.router'
 import { orderRouter } from './orders/order.router'
 import { restaurantRouter } from './restaurant/restaurant.router'
 import { restaurantoRouter } from './restaurant_owner/reustauranto.router'
-import { outhRouter } from './outh/outh.router'
+import { authRouter } from './auth/auth.router'
 app.route('/',stateRouter)
 app.route('/',cityRouter)
 app.route('/',categoryRouter)
@@ -60,7 +60,7 @@ app.route('/',ordersRouter)
 app.route('/',orderRouter)
 app.route('/',restaurantRouter)
 app.route('/',restaurantoRouter)
-app.route('/',outhRouter)
+app.route('outh/',authRouter)
 
 app.get('/',(c)=>{
     return c.text("hello world")

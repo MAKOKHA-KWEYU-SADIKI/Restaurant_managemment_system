@@ -1,14 +1,13 @@
-
-import { tableOuthuser, TIouth, TSouth } from "../drizzle/schema";
+import { tableOuthuser, TIAuthOnUser, TSAuthOnUser } from "../drizzle/schema";
 import {db} from "../drizzle/db";
 import { sql } from "drizzle-orm";
 
-export const createouthUserService = async (user: TIouth): Promise<string | null> => {
+export const createAuthUserService = async (user: TIAuthOnUser): Promise<string | null> => {
     await db.insert(tableOuthuser).values(user)
     return "User created successfully";
 }
 
-export const userLoginService = async (user: TSouth) => {
+export const userLoginService = async (user: TSAuthOnUser) => {
     const { username, password } = user;
     return await db.query.tableOuthuser.findFirst({
         columns: {
@@ -19,8 +18,9 @@ export const userLoginService = async (user: TSouth) => {
         with: {
             user: {
                 columns: {
-                    email_verified: true,
+                    name: true,
                     contact_phone: true,
+                    email:true,
                     address: true,
                     id: true
                 }

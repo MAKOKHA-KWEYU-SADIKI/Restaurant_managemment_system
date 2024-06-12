@@ -161,10 +161,10 @@ export const tableStatus_catalog=pgTable("status_catalog",{
     name:varchar("name",{length:255}),
     order_status:text("order_status").notNull(),
 });
-export const roleEnum=pgEnum("role",['adm','user'])
+export const roleEnum=pgEnum("role",["adm","user"])
 export const tableOuthuser=pgTable("outhuser",{
     id:serial("id").primaryKey(),
-    user_id:integer("user_id").references(()=>tableUsers.id,{onDelete:"cascade"}),
+    user_id:integer("user_id").notNull().references(()=>tableUsers.id,{onDelete:"cascade"}),
     password:varchar("password",{length:100}),
     username:varchar("username",{length:100}),
     role:roleEnum("role").default("user")
@@ -313,5 +313,5 @@ export type TSrestaurant=typeof tableRestaurant.$inferInsert;
 export type TIrestaurant=typeof tableRestaurant.$inferSelect;
 export type TSrestauranto=typeof tableRestaurant_owner.$inferInsert;
 export type TIrestauranto=typeof tableRestaurant_owner.$inferSelect;
-export type TIouth =typeof tableOuthuser.$inferInsert;
-export type TSouth=typeof tableOuthuser.$inferSelect;
+export type TIAuthOnUser =typeof tableOuthuser.$inferInsert;
+export type TSAuthOnUser =typeof tableOuthuser.$inferSelect;

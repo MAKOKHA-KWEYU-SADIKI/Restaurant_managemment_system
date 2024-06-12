@@ -18,7 +18,7 @@ Content-Type: application/json
 "city":"kakamega county-matungu sub-county"
 }
 ###
-PUT http://localhost:3000/api/stateUpdate/7
+PUT http://localhost:3000/api/stateUpdate/1
 Content-Type: application/json
 
 {
@@ -390,28 +390,39 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/register
+POST http://localhost:3000/api/outh/register
 Content-Type: application/json
 
 {
-"state_id":5,
-"username":"sadque",
-"password":"kms@@@fgs",
-"role":"adm"
+  "user_id":5,
+   "username":"Abdi",
+    "password":"kms@",
+    "role":"adm"
 }
 ###
-POST http://localhost:3000/api/login
+POST http://localhost:3000/api/outh/login
 Content-Type: application/json
 
 {
-"username":"sadque",
-"password":"kms@@@fgs"
+   "username":"Abdi",
+    "password":"kms@"
 }
 ###
 GET http://localhost:3000/api/l
 
 ###
-DELETE http://localhost:3000/api/deleteUser
+DELETE http://localhost:3000/api/deleteUser5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODIzOTUyOH0.8l-6yzopR4Fzy_uegCtuHv8cucZdkKGqCF_W4EJmxVc"
 ###
 PUT http://localhost:3000/api/updateUser
 ###
+POST http://localhost:3000/api/createUser
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI0MDE5Mn0.f2NdNyXZMDSjAzJy_zBrQwULyG9s7eqA7qMWPqI1aB4
+Content-Type: application/json
+
+{
+"user_id":"3",
+"password":"sadquer",
+"username":"Abdirahman",
+"role":"adm"
+}
