@@ -25,8 +25,8 @@ export const tableRestaurant=pgTable("restaurant",{
     street_address:varchar("street_address",{length:255}).notNull(),
     zip_code:varchar("zip_code",{length:255}).notNull(),
     city_id:integer("city_id").notNull().references(()=>tableCity.id,{onDelete:"cascade"}),
-    created_at:timestamp("created_at").notNull(),
-    updated_at:timestamp("updated_at").notNull(),
+    created_at:timestamp("created_at").defaultNow(),
+    updated_at:timestamp("updated_at").defaultNow(),
     menu_item:text("menu_item").notNull(),
     orders:text("orders").notNull(),
     city:text("city").notNull(),
@@ -115,8 +115,8 @@ export const tableAddress=pgTable("address",{
     delivery_instructions:varchar("delivery_instructions"),
     user_id:integer("user_id").notNull().references(()=>tableUsers.id,{onDelete:"cascade"}),
     city_id:integer("city_id").notNull().references(()=>tableCity.id,{onDelete:"cascade"}),
-    created_at:timestamp("created_at").notNull(),
-    updated_at:timestamp("updated_at").notNull(),
+    created_at:varchar("created_at").notNull(),
+    updated_at:varchar("updated_at").notNull(),
     city:text("city").notNull(),
     users:text("users").notNull(),
     orders:text("orders").notNull(),
@@ -161,18 +161,18 @@ export const tableStatus_catalog=pgTable("status_catalog",{
     name:varchar("name",{length:255}),
     order_status:text("order_status").notNull(),
 });
-export const roleenum=pgEnum("role",['adm','state'])
-export const tableOuthstate=pgTable("outhstate",{
+export const roleEnum=pgEnum("role",['adm','user'])
+export const tableOuthuser=pgTable("outhuser",{
     id:serial("id").primaryKey(),
-    state_id:integer("state_id").references(()=>tableUsers.id,{onDelete:"cascade"}),
+    user_id:integer("user_id").references(()=>tableUsers.id,{onDelete:"cascade"}),
     password:varchar("password",{length:100}),
-    username:varchar("staename",{length:100}),
-    role:roleenum("role").default("state")
+    username:varchar("username",{length:100}),
+    role:roleEnum("role").default("user")
 });
-export const aouthuserRelation=relations(tableOuthstate,({one})=>({
-    states:one(tableState,{
-        fields:[tableOuthstate.state_id],
-        references:[tableState.id]
+export const outhuserRelation=relations(tableOuthuser,({one})=>({
+    user:one(tableUsers,{
+        fields:[tableOuthuser.user_id],
+        references:[tableUsers.id]
     })
 }));
 export const stateRelations = relations(tableState,({one,many})=>({
@@ -313,5 +313,5 @@ export type TSrestaurant=typeof tableRestaurant.$inferInsert;
 export type TIrestaurant=typeof tableRestaurant.$inferSelect;
 export type TSrestauranto=typeof tableRestaurant_owner.$inferInsert;
 export type TIrestauranto=typeof tableRestaurant_owner.$inferSelect;
-export type TIouth =typeof tableOuthstate.$inferInsert;
-export type TSouth=typeof tableOuthstate.$inferSelect;
+export type TIouth =typeof tableOuthuser.$inferInsert;
+export type TSouth=typeof tableOuthuser.$inferSelect;

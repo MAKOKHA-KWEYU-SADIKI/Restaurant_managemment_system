@@ -2,7 +2,7 @@ import { Context } from "hono";
 import { userService, getuserService, createuserService, updateuserService, deleteuserService, } from "./user.sevice";
 export const listuser = async (c: Context) => {
     try {
-        //limit the number of state to be returned
+      
 
         const limit = Number(c.req.query('limit'))
 

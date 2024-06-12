@@ -133,8 +133,8 @@ export  const restaurantSchema=z.object({
     street_address:z.string(),
     zip_code:z.string(),
     city_id:z.number(),
-    created_at:z.date(),
-    updated_at:z.date(),
+    created_at:z.string(),
+    updated_at:z.string(),
     menu_item:z.string(),
     orders:z.string(),
     city:z.string(),
@@ -146,13 +146,13 @@ export const restaurantoSchema=z.object({
     users_id:z.string(),
     restaurant:z.string()
 })
-export const loginstateSchema=z.object({
+export const loginuserSchema=z.object({
     username:z.string(),
     password:z.string()
 })
-export const registerstateSchema=z.object({
-    user_id:z.number(),
+export const registeruserSchema=z.object({
+    state_id:z.number(),
     username:z.string(),
     password:z.string(),
-    role:z.string()
+    role:z.string().optional()
 })

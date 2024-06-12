@@ -12,7 +12,7 @@ POST http://localhost:3000/api/stateInsert
 Content-Type: application/json
 
 {
-"id":5,
+"id":6,
 "name":"harambe",
 "code":"005",
 "city":"kakamega county-matungu sub-county"
@@ -47,7 +47,7 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/api/cityFindONE/1
 ###
-PUT http://localhost:3000/api/cityUpdate/22
+PUT http://localhost:3000/api/cityUpdate/4
 Content-Type: application/json
 
 {
@@ -56,7 +56,7 @@ Content-Type: application/json
 "state":"answar"
 }
 ###
-DELETE http://localhost:3000/api/cityDelete/22
+DELETE http://localhost:3000/api/cityDelete/3
 ###
 GET http://localhost:3000/api/categoryList
 ###
@@ -90,13 +90,13 @@ POST http://localhost:3000/api/stateInsert
 Content-Type: application/json
 
 {
-"id":7,
+"id":11,
 "name":"harambe",
 "code":"005",
 "city":"kakamega county-matungu sub-county"
 }
 ###
-PUT http://localhost:3000/api/stateUpdate/7
+PUT http://localhost:3000/api/stateUpdate/10
 Content-Type: application/json
 
 {
@@ -105,11 +105,11 @@ Content-Type: application/json
 "city":"zanziba"
 }
 ###
-DELETE http://localhost:3000/api/stateDelete/8
+DELETE http://localhost:3000/api/stateDelete/10
 ###
 GET http://localhost:3000/api/addressList
 ###
-GET http://localhost:3000/api/addressFindONE/14
+GET http://localhost:3000/api/addressFindONE/6
 ###
 POST http://localhost:3000/api/addressInsert
 Content-Type: application/json
@@ -160,7 +160,7 @@ DELETE http://localhost:3000/api/status_catalogDelete/1
 ###
 GET http://localhost:3000/api/addressList
 ###
-GET http://localhost:3000/api/addressFindONE/3
+GET http://localhost:3000/api/addressFindONE/6
 ###
 DELETE http://localhost:3000/api/addressDelete/1
 ###
@@ -252,9 +252,9 @@ DELETE http://localhost:3000/api/menuDelete/1
 ###
 GET http://localhost:3000/api/menuList
 ###
-GET http://localhost:3000/api/menuFindONE/1
+GET http://localhost:3000/api/menuFindONE/2
 ###
-PUT http://localhost:3000/api/menuUpdate/1
+PUT http://localhost:3000/api/menuUpdate/2
 Content-Type: application/json
 
 {
@@ -315,9 +315,9 @@ DELETE http://localhost:3000/api/orderDelete/1
 ###
 GET http://localhost:3000/api/orderList
 ###
-GET http://localhost:3000/api/orderFindONE/2
+GET http://localhost:3000/api/orderFindONE/6
 ###
-PUT http://localhost:3000/api/orderUpdate/2
+PUT http://localhost:3000/api/orderUpdate/6
 Content-Type: application/json
 
 {
@@ -352,7 +352,17 @@ POST http://localhost:3000/api/restaurantInsert
 Content-Type: application/json
 
 {
- 
+"id": 1,
+    "name": "ma shaa Allah",
+    "street_address": "riyadh125",
+    "zip_code": "347843yy",
+    "city_id": 1,
+    "created_at": "2023-04-05",
+    "updated_at": "2024-06-05",
+    "menu_item": "beverage",
+    "orders": "3",
+    "city": "Makkah",
+    "restaurand_owner": "Sadque"
 }
 ###
 DELETE http://localhost:3000/api/restaurantoDelete/1
@@ -378,3 +388,30 @@ Content-Type: application/json
   "users_id":"34",
   "restaurant":"Alhamdullillha"
 }
+
+###
+POST http://localhost:3000/api/register
+Content-Type: application/json
+
+{
+"state_id":5,
+"username":"sadque",
+"password":"kms@@@fgs",
+"role":"adm"
+}
+###
+POST http://localhost:3000/api/login
+Content-Type: application/json
+
+{
+"username":"sadque",
+"password":"kms@@@fgs"
+}
+###
+GET http://localhost:3000/api/l
+
+###
+DELETE http://localhost:3000/api/deleteUser
+###
+PUT http://localhost:3000/api/updateUser
+###
