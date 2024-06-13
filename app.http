@@ -12,7 +12,7 @@ POST http://localhost:3000/api/stateInsert
 Content-Type: application/json
 
 {
-"id":6,
+"id":45,
 "name":"harambe",
 "code":"005",
 "city":"kakamega county-matungu sub-county"
@@ -390,7 +390,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:3000/api/outh/register
+POST http://localhost:3000/api/auth/register
 Content-Type: application/json
 
 {
@@ -400,7 +400,7 @@ Content-Type: application/json
     "role":"adm"
 }
 ###
-POST http://localhost:3000/api/outh/login
+POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
@@ -408,21 +408,23 @@ Content-Type: application/json
     "password":"kms@"
 }
 ###
-GET http://localhost:3000/api/l
-
+GET http://localhost:3000/api/auth/list
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
 ###
-DELETE http://localhost:3000/api/deleteUser5
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODIzOTUyOH0.8l-6yzopR4Fzy_uegCtuHv8cucZdkKGqCF_W4EJmxVc"
+GET http://localhost:3000/api/auth/find_one/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
 ###
-PUT http://localhost:3000/api/updateUser
+DELETE http://localhost:3000/api/auth/delete/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
 ###
-POST http://localhost:3000/api/createUser
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI0MDE5Mn0.f2NdNyXZMDSjAzJy_zBrQwULyG9s7eqA7qMWPqI1aB4
+PUT http://localhost:3000/api/auth/update/3
 Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
 
 {
-"user_id":"3",
-"password":"sadquer",
-"username":"Abdirahman",
-"role":"adm"
+"name":"Abdirahman Alli",
+"address":"43434Ryadh",
+"comment":"Alhamdullillah"
 }
+###
+GET http://localhost:3000/api/join

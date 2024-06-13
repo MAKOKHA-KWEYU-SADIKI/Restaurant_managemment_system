@@ -46,6 +46,7 @@ import { orderRouter } from './orders/order.router'
 import { restaurantRouter } from './restaurant/restaurant.router'
 import { restaurantoRouter } from './restaurant_owner/reustauranto.router'
 import { authRouter } from './auth/auth.router'
+import { RoutdriveRelated } from './routing.joinRelations/Driver_order.router'
 app.route('/',stateRouter)
 app.route('/',cityRouter)
 app.route('/',categoryRouter)
@@ -60,7 +61,8 @@ app.route('/',ordersRouter)
 app.route('/',orderRouter)
 app.route('/',restaurantRouter)
 app.route('/',restaurantoRouter)
-app.route('outh/',authRouter)
+app.route('auth/',authRouter)
+app.route('/',RoutdriveRelated)
 
 app.get('/',(c)=>{
     return c.text("hello world")

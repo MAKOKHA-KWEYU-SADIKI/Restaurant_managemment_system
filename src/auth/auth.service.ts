@@ -1,4 +1,4 @@
-import { tableOuthuser, TIAuthOnUser, TSAuthOnUser } from "../drizzle/schema";
+import { tableOuthuser, TIAuthOnUser, TSAuthOnUser,tableOuthstate,TIAuthOnstate,TSAuthOnstate } from "../drizzle/schema";
 import {db} from "../drizzle/db";
 import { sql } from "drizzle-orm";
 
@@ -28,3 +28,28 @@ export const userLoginService = async (user: TSAuthOnUser) => {
         }
     })
 }
+// export const createAuthsateService = async (sate: TIAuthOnstate): Promise<string | null> => {
+//     await db.insert(tableOuthstate).values(sate)
+//     return "User created successfully";
+// }
+
+// export const sateLoginService = async (state: TSAuthOnstate) => {
+//     const { statename, password } = state;
+//     return await db.query.tableOuthstate.findFirst({
+//         columns: {
+//             statename: true,
+//             role: true,
+//             password: true
+//         }, where: sql` ${tableOuthuser.username} = ${statename}`,
+//         with: {
+//             state: {
+//                 columns: {
+//                     name: true,
+//                     code: true,
+//                     city:true,
+                   
+//                 }
+//             }
+//         }
+//     })
+// }
