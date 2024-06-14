@@ -1,6 +1,6 @@
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
-//import { state } from './state/state.router'
+
 import "dotenv/config"
 import { logger } from 'hono/logger'
 import { csrf } from 'hono/csrf'
@@ -18,12 +18,10 @@ const customTimeoutException = () =>
   
 const { printMetrics, registerMetrics } = prometheus()
   
-  // inbuilt middlewares
-app.use(logger())  //logs request and response to the console
-app.use(csrf()) //prevents CSRF attacks by checking request headers.
-app.use(trimTrailingSlash()) //removes trailing slashes from the request URL
+app.use(logger()) 
+app.use(csrf()) 
+app.use(trimTrailingSlash()) 
 app.use('/', timeout(10000, customTimeoutException))
-//3rd party middlewares
 app.use('*', registerMetrics)
 app.get('/timeout', async (c) => {
     await new Promise((resolve) => setTimeout(resolve, 11000))
@@ -65,7 +63,8 @@ app.route('auth/',authRouter)
 app.route('/',RoutdriveRelated)
 
 app.get('/',(c)=>{
-    return c.text("hello world")
+    return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
+        <h2> MAKOKHA SADIKI</h2>`)
 })
 app.get('/w',(c)=>{
     return c.text("backend is interesting")
@@ -73,25 +72,10 @@ app.get('/w',(c)=>{
 app.notFound((c)=>{
     return c.text("service not found",404)
 })
-//app.route('/api',stateRouter)
 const port=3000
 serve({
     fetch:app.fetch,
     port
 })
-
-// serve({
-//     fetch:app.fetch,
-//     port:Number(process.env.PORT) 
-// })
 console.log('service is runnig at port 3000')
-//app.route("/state", stateRouter)   
 
-
-//app.route('/state',stateRouter);
-
-
-// function f(nam:string){
-//     console.log("ts configuration");
-// }
-// f("hello");

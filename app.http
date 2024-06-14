@@ -1,4 +1,4 @@
-GET http://localhost:3000/
+GET http://localhost:3000/api/
 ###
 GET http://localhost:3000/w
 ###
@@ -409,13 +409,13 @@ Content-Type: application/json
 }
 ###
 GET http://localhost:3000/api/auth/list
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI5NTI2NX0.2D8zXGsjfvnDJy-7lzUMMRR-oFeO-x3f8rW2A6-h0fo
 ###
 GET http://localhost:3000/api/auth/find_one/3
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI5NTI2NX0.2D8zXGsjfvnDJy-7lzUMMRR-oFeO-x3f8rW2A6-h0fo
 ###
-DELETE http://localhost:3000/api/auth/delete/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI1NzcwM30.qq-IuPTVcSo0eDiaptvnAydd_WZFq6TMCsxv3WQbHF4
+DELETE http://localhost:3000/api/auth/delete/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJBYmRpIiwicm9sZSI6ImFkbSIsImV4cCI6MTcxODI5NTI2NX0.2D8zXGsjfvnDJy-7lzUMMRR-oFeO-x3f8rW2A6-h0fo
 ###
 PUT http://localhost:3000/api/auth/update/3
 Content-Type: application/json

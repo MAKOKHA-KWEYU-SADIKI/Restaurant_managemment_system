@@ -1,9 +1,7 @@
 import {db} from "../drizzle/db"
 import {eq} from "drizzle-orm"
 import{TIuser,TSuser,tableUsers,}from "../drizzle/schema"
-// export const stateservice=async():Promise<TSstate[] |null>=>{
-//     return await db.query.tableState.findMany();
-//}
+
 export const userService = async (limit?: number): Promise<TSuser[] | null> => {
     if (limit) {
         return await db.query.tableUsers.findMany({

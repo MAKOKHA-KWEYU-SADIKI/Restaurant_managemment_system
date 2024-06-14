@@ -2,7 +2,7 @@ import { Context } from "hono";
 import { stateService, getstateService, createstateService, updatestateService, deletestateService, } from "./state.service";
 export const liststate = async (c: Context) => {
     try {
-        //limit the number of state to be returned
+        
 
         const limit = Number(c.req.query('limit'))
 
@@ -46,12 +46,12 @@ export const updatestate = async (c: Context) => {
 
     const state = await c.req.json();
     try {
-        // search for the state
+       
         const searchedstate = await getstateService(id);
         if (searchedstate == undefined) return c.text("state not found", 404);
-        // get the data and update it
+        
         const res = await updatestateService(id, state);
-        // return a success message
+        
         if (!res) return c.text("state not updated", 404);
 
         return c.json({ msg: res }, 201);
