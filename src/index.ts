@@ -28,7 +28,10 @@ app.get('/timeout', async (c) => {
     return c.text("data after 5 seconds", 200)
   })
   app.get('/metrics', printMetrics)
-   
+app.get('/',(c)=>{
+   return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
+        <h2> MAKOKHA SADIKI</h2>`)
+})   
 import { stateRouter } from './state/state.router'
 import { cityRouter } from './city/city.router'
 import{categoryRouter} from './category/category.router'
@@ -62,13 +65,7 @@ app.route('/',restaurantoRouter)
 app.route('auth/',authRouter)
 app.route('/',RoutdriveRelated)
 
-app.get('/',(c)=>{
-    return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
-        <h2> MAKOKHA SADIKI</h2>`)
-})
-app.get('/w',(c)=>{
-    return c.text("backend is interesting")
-})
+
 app.notFound((c)=>{
     return c.text("service not found",404)
 })
