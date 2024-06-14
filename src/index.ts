@@ -21,17 +21,18 @@ const { printMetrics, registerMetrics } = prometheus()
 app.use(logger()) 
 app.use(csrf()) 
 app.use(trimTrailingSlash()) 
-app.use('/', timeout(10000, customTimeoutException))
+app.use('/timing', timeout(10000, customTimeoutException))
 app.use('*', registerMetrics)
+app.get('/',(c)=>{
+    return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
+         <h2> MAKOKHA SADIKI</h2>`)
+ })   
 app.get('/timeout', async (c) => {
     await new Promise((resolve) => setTimeout(resolve, 11000))
     return c.text("data after 5 seconds", 200)
   })
   app.get('/metrics', printMetrics)
-app.get('/',(c)=>{
-   return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
-        <h2> MAKOKHA SADIKI</h2>`)
-})   
+
 import { stateRouter } from './state/state.router'
 import { cityRouter } from './city/city.router'
 import{categoryRouter} from './category/category.router'
