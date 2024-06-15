@@ -1,82 +1,3 @@
-// import { serve } from '@hono/node-server'
-// import { Hono } from 'hono'
-
-// import "dotenv/config"
-// import { logger } from 'hono/logger'
-// import { csrf } from 'hono/csrf'
-// import { trimTrailingSlash } from 'hono/trailing-slash'
-// import { timeout } from 'hono/timeout'
-// import { HTTPException } from 'hono/http-exception'
-// import { prometheus } from '@hono/prometheus'
- 
- 
-// const app=new Hono().basePath('/api')
-// const customTimeoutException = () =>
-//     new HTTPException(408, {
-//       message: `Request timeout after waiting for more than 10 seconds`,
-// })
-  
-// const { printMetrics, registerMetrics } = prometheus()
-  
-// app.use(logger()) 
-// app.use(csrf()) 
-// app.use(trimTrailingSlash()) 
-// app.use('/timing', timeout(10000, customTimeoutException))
-// app.use('*', registerMetrics)
-// app.get('/',(c)=>{
-//     return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
-//          <h2> MAKOKHA SADIKI</h2>`)
-//  })   
-// app.get('/timeout', async (c) => {
-//     await new Promise((resolve) => setTimeout(resolve, 11000))
-//     return c.text("data after 5 seconds", 200)
-//   })
-//   app.get('/metrics', printMetrics)
-
-// import { stateRouter } from './state/state.router'
-// import { cityRouter } from './city/city.router'
-// import{categoryRouter} from './category/category.router'
-// import{status_catalogRouter} from './catalog/catalog.router'
-// import { addressRouter } from './address/address.router'
-// import { userRouter } from './user/user.router'
-// import { commentRouter } from './comment/comment.router'
-// import { driverRouter } from './driver/driver.router'
-// import { menuRouter } from './menu_item/menu.router'
-// import { ordermRouter } from './order_menu item/orderm.router'
-// import { ordersRouter } from './order_status/orders.router'
-// import { orderRouter } from './orders/order.router'
-// import { restaurantRouter } from './restaurant/restaurant.router'
-// import { restaurantoRouter } from './restaurant_owner/reustauranto.router'
-// import { authRouter } from './auth/auth.router'
-// import { RoutdriveRelated } from './routing.joinRelations/Driver_order.router'
-// app.route('/',stateRouter)
-// app.route('/',cityRouter)
-// app.route('/',categoryRouter)
-// app.route('/',status_catalogRouter)
-// app.route('/',addressRouter)
-// app.route('/',userRouter)
-// app.route('/',commentRouter)
-// app.route('/',driverRouter)
-// app.route('/',menuRouter)
-// app.route('/',ordermRouter)
-// app.route('/',ordersRouter)
-// app.route('/',orderRouter)
-// app.route('/',restaurantRouter)
-// app.route('/',restaurantoRouter)
-// app.route('auth/',authRouter)
-// app.route('/',RoutdriveRelated)
-
-
-// app.notFound((c)=>{
-//     return c.text("service not found",404)
-// })
-// const port=3000
-// serve({
-//     fetch:app.fetch,
-//     port
-// })
-// console.log('service is runnig at port 3000')
-
 import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 
@@ -87,37 +8,35 @@ import { trimTrailingSlash } from 'hono/trailing-slash'
 import { timeout } from 'hono/timeout'
 import { HTTPException } from 'hono/http-exception'
 import { prometheus } from '@hono/prometheus'
-
-const app = new Hono().basePath('/api')
+ 
+ 
+const app=new Hono()
 const customTimeoutException = () =>
-  new HTTPException(408, {
-    message: `Request timeout after waiting for more than 10 seconds`,
-  })
-
+    new HTTPException(408, {
+      message: `Request timeout after waiting for more than 10 seconds`,
+})
+  
 const { printMetrics, registerMetrics } = prometheus()
-
-app.use(logger())
-app.use(csrf())
-app.use(trimTrailingSlash())
+  
+app.use(logger()) 
+app.use(csrf()) 
+app.use(trimTrailingSlash()) 
 app.use('/timing', timeout(10000, customTimeoutException))
 app.use('*', registerMetrics)
-
-// Root path handler
-app.get('/', (c) => {
-  return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
-    <h2> MAKOKHA SADIKI</h2>`)
-})
-
+app.get('/',(c)=>{
+    return c.html(`<h1>Welcome to my Restaurant Server</h1><br>
+         <h2> MAKOKHA SADIKI</h2>`)
+ })   
 app.get('/timeout', async (c) => {
-  await new Promise((resolve) => setTimeout(resolve, 11000))
-  return c.text("data after 5 seconds", 200)
-})
-app.get('/metrics', printMetrics)
+    await new Promise((resolve) => setTimeout(resolve, 11000))
+    return c.text("data after 5 seconds", 200)
+  })
+  app.get('/metrics', printMetrics)
 
 import { stateRouter } from './state/state.router'
 import { cityRouter } from './city/city.router'
-import { categoryRouter } from './category/category.router'
-import { status_catalogRouter } from './catalog/catalog.router'
+import{categoryRouter} from './category/category.router'
+import{status_catalogRouter} from './catalog/catalog.router'
 import { addressRouter } from './address/address.router'
 import { userRouter } from './user/user.router'
 import { commentRouter } from './comment/comment.router'
@@ -130,33 +49,31 @@ import { restaurantRouter } from './restaurant/restaurant.router'
 import { restaurantoRouter } from './restaurant_owner/reustauranto.router'
 import { authRouter } from './auth/auth.router'
 import { RoutdriveRelated } from './routing.joinRelations/Driver_order.router'
+app.route('/api',stateRouter)
+app.route('/api',cityRouter)
+app.route('/api',categoryRouter)
+app.route('/api',status_catalogRouter)
+app.route('/api',addressRouter)
+app.route('/api',userRouter)
+app.route('/api',commentRouter)
+app.route('/api',driverRouter)
+app.route('/api',menuRouter)
+app.route('/api',ordermRouter)
+app.route('/api',ordersRouter)
+app.route('/api',orderRouter)
+app.route('/api',restaurantRouter)
+app.route('/api',restaurantoRouter)
+app.route('/api/auth/',authRouter)
+app.route('/api',RoutdriveRelated)
 
-// Define specific base paths for routers
-app.route('/state', stateRouter)
-app.route('/city', cityRouter)
-app.route('/category', categoryRouter)
-app.route('/status-catalog', status_catalogRouter)
-app.route('/address', addressRouter)
-app.route('/user', userRouter)
-app.route('/comment', commentRouter)
-app.route('/driver', driverRouter)
-app.route('/menu', menuRouter)
-app.route('/order-menu-item', ordermRouter)
-app.route('/order-status', ordersRouter)
-app.route('/order', orderRouter)
-app.route('/restaurant', restaurantRouter)
-app.route('/restaurant-owner', restaurantoRouter)
-app.route('/auth', authRouter)
-app.route('/driver-order', RoutdriveRelated)
 
-// Define the notFound handler last
-app.notFound((c) => {
-  return c.text("service not found", 404)
+app.notFound((c)=>{
+    return c.text("service not found",404)
 })
-
-const port = 3000
+const port=3000
 serve({
-  fetch: app.fetch,
-  port
+    fetch:app.fetch,
+    port:Number(process.env.PORT || 3000)
 })
-console.log('service is running at port 3000')
+console.log('service is runnig at port 3000')
+

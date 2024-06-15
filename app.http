@@ -1,6 +1,6 @@
-GET http://localhost:3000/api/
+GET http://localhost:3000/
 ###
-GET http://localhost:3000/w
+GET http://localhost:3000/api/w
 ###
 GET http://localhost:3000/api/
 ###
