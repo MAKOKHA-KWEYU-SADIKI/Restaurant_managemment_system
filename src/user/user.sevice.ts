@@ -17,8 +17,8 @@ export const getuserService = async (id: number): Promise<TIuser | undefined> =>
     })
 }
 
-export const createuserService = async (state: TIuser) => {
-    await db.insert(tableUsers).values(state)
+export const createuserService = async (user: TIuser) => {
+    await db.insert(tableUsers).values(user)
     return "user created successfully";
 }
 
@@ -30,3 +30,7 @@ export const deleteuserService = async (id: number) => {
     await db.delete(tableUsers).where(eq(tableUsers.id, id))
     return "user deleted successfully";
 }
+const maill=()=>{
+    console.log("itroduction to nodemailer")
+}
+export default maill;

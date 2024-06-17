@@ -388,7 +388,27 @@ Content-Type: application/json
   "users_id":"34",
   "restaurant":"Alhamdullillha"
 }
+###
+GET http://localhost:3000/api/userList
+###
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
 
+{
+ "name": "Abdirahman",
+    "contact_phone": "0762435635",
+    "phone_verified": true,
+    "email": "sadque@jfkd",
+    "email_verified": true,
+    "confirmation_code": "233223ew",
+    "password": "sadq3233",
+    "address": "madina33232",
+    "comment": "fine ",
+    "driver": "hjhxd",
+    "orders": "34",
+    "restaurant_owner": "Alli "
+
+}
 ###
 POST http://localhost:3000/api/auth/register
 Content-Type: application/json

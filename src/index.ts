@@ -77,3 +77,10 @@ serve({
 })
 console.log('service is runnig at port 3000')
 
+// import cron from 'node-cron'
+// cron.schedule('*/5 * * * * *',()=>{
+//     console.log("introduction to background survices with TS")
+// })
+
+// import maill from './user/user.sevice'
+// maill()

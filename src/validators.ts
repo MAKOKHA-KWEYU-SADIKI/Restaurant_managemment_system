@@ -45,8 +45,6 @@ export const userSchema =z.object({
     email_verified:z.string(),
     confirmation_code:z.string(),
     password:z.string(),
-    created_at:z.date().optional(),
-    updated_at:z.date().optional(),
     address:z.string(),
     comment:z.string(),
     driver:z.string(),
