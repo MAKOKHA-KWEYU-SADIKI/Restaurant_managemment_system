@@ -1,10 +1,21 @@
 import { tableOuthuser, TIAuthOnUser, TSAuthOnUser,tableOuthstate,TIAuthOnstate,TSAuthOnstate } from "../drizzle/schema";
 import {db} from "../drizzle/db";
 import { sql } from "drizzle-orm";
-
+import { sendRegistrationEmail } from "../nodemailer/mails";
 export const createAuthUserService = async (user: TIAuthOnUser): Promise<string | null> => {
-    await db.insert(tableOuthuser).values(user)
+   try{
+    await db.insert(tableOuthuser).values(user);
+    const emailResponse=await sendRegistrationEmail(user.email as string);
+    console.log(emailResponse); 
+
     return "User created successfully";
+
+   } catch(error:any){
+    console.log(error)
+    throw new error("user creation failed")
+
+   };
+   
 }
 
 export const userLoginService = async (user: TSAuthOnUser) => {
@@ -13,7 +24,8 @@ export const userLoginService = async (user: TSAuthOnUser) => {
         columns: {
             username: true,
             role: true,
-            password: true
+            password: true,
+            email:true
         }, where: sql` ${tableOuthuser.username} = ${username}`,
         with: {
             user: {
@@ -26,30 +38,6 @@ export const userLoginService = async (user: TSAuthOnUser) => {
                 }
             }
         }
+        
     })
 }
-// export const createAuthsateService = async (sate: TIAuthOnstate): Promise<string | null> => {
-//     await db.insert(tableOuthstate).values(sate)
-//     return "User created successfully";
-// }
-
-// export const sateLoginService = async (state: TSAuthOnstate) => {
-//     const { statename, password } = state;
-//     return await db.query.tableOuthstate.findFirst({
-//         columns: {
-//             statename: true,
-//             role: true,
-//             password: true
-//         }, where: sql` ${tableOuthuser.username} = ${statename}`,
-//         with: {
-//             state: {
-//                 columns: {
-//                     name: true,
-//                     code: true,
-//                     city:true,
-                   
-//                 }
-//             }
-//         }
-//     })
-// }

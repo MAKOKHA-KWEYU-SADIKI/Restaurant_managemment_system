@@ -391,17 +391,19 @@ Content-Type: application/json
 ###
 GET http://localhost:3000/api/userList
 ###
-POST http://localhost:3000/api/auth/register
+POST http://localhost:3000/api/userInsert
 Content-Type: application/json
 
 {
- "name": "Abdirahman",
+ "name": "ABDIRAHMAN",
     "contact_phone": "0762435635",
     "phone_verified": true,
     "email": "sadque@jfkd",
     "email_verified": true,
     "confirmation_code": "233223ew",
     "password": "sadq3233",
+    "created_at": "2023-09-09T00:00:00.000Z",
+    "updated_at": "2024-06-14T00:00:00.000Z",
     "address": "madina33232",
     "comment": "fine ",
     "driver": "hjhxd",

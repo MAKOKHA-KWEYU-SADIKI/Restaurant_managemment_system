@@ -77,10 +77,14 @@ serve({
 })
 console.log('service is runnig at port 3000')
 
-// import cron from 'node-cron'
-// cron.schedule('*/5 * * * * *',()=>{
-//     console.log("introduction to background survices with TS")
-// })
-
-// import maill from './user/user.sevice'
-// maill()
+import { sendRegistrationEmail } from './nodemailer/mails'
+const main = async () => {
+    const userEmail = process.env.EMAIL; // Replace with the actual user email
+    try {
+        const emailResponse = await sendRegistrationEmail(userEmail as string);
+        console.log(emailResponse);
+    } catch (error: any) {
+        console.error('Error sending registration email:', error.message);
+    }
+};
+main();

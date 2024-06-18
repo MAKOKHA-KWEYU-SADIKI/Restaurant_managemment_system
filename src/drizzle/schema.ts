@@ -60,8 +60,8 @@ export const tableUsers=pgTable("users",{
     email_verified:boolean("email_verified").notNull(),
     confirmation_code:varchar("confirmation_code"),
     password:varchar("password",{length:255}).notNull(),
-    created_at:timestamp("created_at"),
-    updated_at:timestamp("updated_at"),
+    created_at:varchar("created_at"),
+    updated_at:varchar("updated_at"),
     address:text("address").notNull(),
     comment:text("comment").notNull(),
     driver:text("driver").notNull(),
@@ -128,8 +128,8 @@ export const tableComment=pgTable("comment",{
     comment_text:varchar("comment_text",{length:255}).notNull(),
     is_complaint:boolean("is_complaint").notNull(),
     is_praise:boolean("is_praise").notNull(),
-    created_at:timestamp("created_at").notNull(),
-    updated_at:timestamp("updated_at").notNull(),
+    created_at:timestamp("created_at").notNull().defaultNow(),
+    updated_at:timestamp("updated_at").notNull().defaultNow(),
     orders:text("orders").notNull(),
     users:text("users").notNull(),
 });
@@ -167,6 +167,7 @@ export const tableOuthuser=pgTable("outhuser",{
     user_id:integer("user_id").notNull().references(()=>tableUsers.id,{onDelete:"cascade"}),
     password:varchar("password",{length:100}),
     username:varchar("username",{length:100}),
+    email:varchar("email",{length:255}),
     role:roleEnum("role").default("user")
 });
 export const outhuserRelation=relations(tableOuthuser,({one})=>({
@@ -180,6 +181,7 @@ export const tableOuthstate=pgTable("outhstate",{
     state_id:integer("state_id").references(()=>tableState.id,{onDelete:"cascade"}),
     password:varchar("password"),
     statename:varchar("statename"),
+    email:varchar("email",{length:244}),
     role:roleEnum("role").default("member")
 })
 export const stateauthRelation=relations(tableOuthstate,({one})=>({

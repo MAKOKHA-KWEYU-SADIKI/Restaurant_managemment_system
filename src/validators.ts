@@ -42,7 +42,7 @@ export const userSchema =z.object({
     contact_phone:z.string(),
     phone_verified:z.boolean(),
     email:z.string(),
-    email_verified:z.string(),
+    email_verified:z.boolean(),
     confirmation_code:z.string(),
     password:z.string(),
     address:z.string(),

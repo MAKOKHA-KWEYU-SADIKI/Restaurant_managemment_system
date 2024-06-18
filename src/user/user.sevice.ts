@@ -30,7 +30,7 @@ export const deleteuserService = async (id: number) => {
     await db.delete(tableUsers).where(eq(tableUsers.id, id))
     return "user deleted successfully";
 }
-const maill=()=>{
-    console.log("itroduction to nodemailer")
-}
-export default maill;
+// const maill=()=>{
+//     console.log("itroduction to nodemailer")
+// }
+// export default maill;
